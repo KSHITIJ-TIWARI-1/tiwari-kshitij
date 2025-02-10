@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkartclone</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+       * {
+            margin: 0px;
+            padding:0px;
+            box-sizing:border-box;
+            font-family: 'Roboto', sans-serif;
+            
+    }
+        Body{
+            font-family:arial, sans-serif;
+            background-color: azure;
+
+    }
+            .navbar{
+                background-color: #ffffff;
+                display: flex;
+                overflow: hidden;
+                align-items: center;
+                padding: 8px 20px;
+                box-shadow:0px 2px 5px rgba(0 , 0 , 0 , 0.1);
+    }
+
+            .navbar .logo {
+                font-size: 34px;
+                font-weight: 700;
+                color: #2874f0;
+                text-decoration: none;
+    }
+
+
+            .navbar. a{
+                color: #2369da;
+                text-decoration: none;
+                padding: 15px 20px;
+                display: inline-block;
+                
+                text-align: center;
+    }
+            .navbar. a:hover{
+                background-color:#a62020;
+               
+    }
+            .logo{
+                font-size: 34px;
+                font-weight: 700;
+                color: #2874f0;
+                text-decoration: none;
+                font-family: 'roboto',sans-serif;
+    }
+            .logo span {
+                font-size: 13px;
+                color: #ffc400;
+                font-weight: 500;
+    }
+            .logo:hover {
+                color: blue;
+    }
+            .logo:active {
+                color: green;
+    }
+            
+            
+            .navbar .menu{
+                display: flex;
+                margin-left: auto;
+                
+    }
+
+
+
+            
+
+            
+            .search-bar {
+                
+                flex-grow: 5;
+                display: flex;
+                align-items: center;
+                background: #f0f5ff; 
+                padding: 5px 10px;
+                border-radius: 8px;
+                margin: 1 20px;
+    }
+                .search-bar input {
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    font-size: 17px;
+                    padding: 11px;
+                    outline: none;
+    }
+                    .search-bar input::placeholder {
+                        font-style: normal;
+                        font-weight: 400;
+                    
+                    
+    }
+                .search-bar i {
+                    color: gray;
+                    margin-right: 19px;
+    }
+                .search-bar input::placeholder {
+                    color: #888;
+                    font-style: italic;
+    }
+                .search-bar input:focus {
+                    border: 2px solid blue;
+                    outline: none;
+    }
+                .menu {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+    }
+                    .menu a {
+                    color: black;
+                    text-decoration: none;
+                    font-size: 18px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-weight: 500;
+                    line-height: 1.2;
+    }
+                    
+                    
+                
+                .menu a i {
+                    font-size: 18px;
+    }  
+                .cart {
+                    position: relative;
+                }
+                .cart span {
+                    position: absolute;
+                    top: -5px;
+                    right: -8px;
+                    background: red;
+                    color: white;
+                    font-size: 12px;
+                    padding: 2px 6px;
+                    border-radius: 50%;
+                }
+
+
+                .categories {
+                    display: flex;
+                    justify-content: space-around;
+                    background: white;
+                    align-items: center;
+                    padding: 10px 0px;
+                    margin: 0 auto; 
+                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                }
+                
+                .category {
+                    text-align: center;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                
+                .category img {
+                    width: 50px; 
+                    height: 100px;
+                    object-fit: contain;
+                    margin-bottom: 6px;
+                }
+                
+                .category span {
+                    font-size: 14px;
+                    display: block;
+                    color: black;
+                }
+                
+            
+            body{
+                
+                background-color: azure;
+                background-repeat: no-repeat;
+                background-size: cover;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                  
+            }
+
+            .product-section {
+                padding: 20px;
+                background: #f8f9fa;
+                text-align: center;
+            }
+            
+            .product-section h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+                color: #333;
+            }
+            
+            .product-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .product {
+                background: white;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                width: 200px;
+            }
+            
+            .product img {
+                width: 100%;
+                height: 150px;
+                object-fit: contain;
+                margin-bottom: 20px;
+            }
+            
+            .product-title {
+                font-size: 16px;
+                font-weight: 600px;
+                color: #444;
+            }
+            
+            .product-price {
+                font-size: 20px;
+                font-weight: bold;
+                color: #e91e63;
+            }
+
+            .image-container {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 5px;
+                width: 150%;
+                max-width: 800px;
+                margin: auto;
+                align-items:center; 
+            }
+            
+            
+            .small-images img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 25px;
+            }
+            
+             Big Image 
+            .big-image img {
+                width: 100%;
+                height: 200%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+            
+
+            .product-section {
+                width: 300%;
+                padding: 20px;
+                background: #f8f9fa;
+            }
+            
+            .product-section h2 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .product-container {
+                display: flex;
+                gap: 15px;
+                overflow-x: auto;  
+                padding-bottom: 10px;
+            }
+            
+            .product-card {
+                flex: 0 0 auto;
+                width: 150px;
+                background: white;
+                text-align: center;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .product-card img {
+                width: 100%;
+                height: 110px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+            
+            .product-card p {
+                font-size: 14px;
+                margin: 5px 0;
+            }
+            
+            .product-card span {
+                font-size: 15px;
+                font-weight: bold;
+                color: green;
+            }
+            
+            .product-section {
+                width: 100%;
+                padding: 20px;
+                background: #f8f9fa;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .product-container {
+                display: flex;
+                gap: 12px;
+                justify-content: space-between;
+                flex-wrap: nowrap; 
+            }
+            
+            .product-card {
+                background: white;
+                text-align: center;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.1);
+                min-width: 210px; 
+            }
+            
+                .product-card img {
+                    width: 120%;
+                    height: 150px;
+                    object-fit: cover;
+                    border-radius: 30px;
+                }
+                
+                .product-card p {
+                    font-size: 17px;
+                    margin: 10px 0;
+                }
+                
+                .product-card span {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: green;
+                } 
+                
+                .image-container {
+                    display: grid;
+                    grid-template-columns: repeat 1fr 1fr; 
+                    gap: 10px;
+                    width: 100%;
+                    max-width: 900px;
+                    margin: auto;
+                    align-items:center; 
+                    
+                }
+                
+                
+                .small-images {
+                    display: grid;
+                    grid-template-columns: repeat (2fr, 1fr);
+                    gap: 10px;
+                }
+                
+                
+                .big-image img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    border-radius: 20px;
+                }
+            </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="https://www.flipkart.com/" class="logo">Flipkart<br><span>Explore<b>Plus⭐</b></span></a>
+        
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search for Product, Brand and More">
+
+
+</div>
+<div class="menu">
+            <a href="#"><i class="fas fa-user-circle"></i>Account ▼</a>
+            <a href="#" class="cart"><i class="fas fa-shopping-cart"></i>Cart</a>
+            <a href="#"><i class="fas fa-store"></i>Become a Seller</a>
+            <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+            
+        </div>
+    </div>
+
+<div>
+
+    <div class="categories">
+        <div class="category">
+            <img src="kilos.png" alt="Kilos">
+            <span>Kilos ▼</span>
+        </div>
+        <div class="category">
+            <img src="mobiles.png" alt="Mobiles">
+            <span>Mobiles ▼</span>
+        </div>
+        <div class="category">
+            <img src="fashion.png" alt="Fashion">
+            <span>Fashion ▼</span>
+        </div>
+        <div class="category">
+            <img src="electronics.png" alt="Electronics">
+            <span>Electronics ▼</span>
+        </div>
+        <div class="category">
+            <img src="Home&furniture.jpg" alt="Home & Furniture">
+            <span>Home & Furniture ▼</span>
+        </div>
+        <div class="category">
+            <img src="appliance.webp" alt="Appliances">
+            <span>Appliances</span>
+        </div>
+        <div class="category">
+            <img src="flitbooking.webp" alt="Flight Bookings">
+            <span>Flight Bookings</span>
+        </div>
+        <div class="category">
+            <img src="Toy.webp" alt="Beauty, Toys & More">
+            <span>Beauty, Toys & More ▼</span>
+        </div>
+        <div class="category">
+            <img src="two wheeler.png" alt="Two Wheelers">
+            <span>Two Wheelers ▼</span>
+        </div>
+    </div>
+    
+
+</div>
+
+
+<div class="product-section">
+    <h2>Top Deals</h2>
+    <div class="product-grid">
+        <div class="product">
+            <img src="iphone.webp" alt="Product 1">
+            <p class="iphone.webp">Smartphone</p>
+            <p class="product-price">₹12,999</p>
+        </div>
+        <div class="product">
+            <img src="Laptop.jpg" alt="Product 2">
+            <p class="product-title">Laptop</p>
+            <p class="product-price">₹45,999</p>
+        </div>
+        <div class="product">
+            <img src="whatch - Copy.webp" alt="Product 3">
+            <p class="product-title">Smartwatch</p>
+            <p class="product-price">₹1,999</p>
+        </div>
+        <div class="product">
+            <img src="headphone.webp" alt="Product 4">
+            <p class="product-title">Headphones</p>
+            <p class="product-price">₹799</p>
+        </div>
+        <div class="product">
+            <img src="telivation.webp" alt="Product 5">
+            <p class="product-title">TV 55" 4K</p>
+            <p class="product-price">₹34,999</p>
+        </div>
+
+        <div class="image-container">
+            <div class="small-images">
+                <img src="MenTopWears.webp" alt="Image 1">
+                <img src="facepack.webp" alt="Image 2">
+                <img src="jewel.webp" alt="Image 3">
+                <img src="Grocery.webp" alt="Image 4">
+            </div>
+            <div class="big-image">
+                <img src="ethic set.webp" alt="Big Image">
+            </div>
+        </div>
+        
+
+
+        
+    </div>
+</div>
+
+<div class="product-section">
+    <h2>Beauty, Food, Toys & more</h2>
+    <div class="product-container">
+        <div class="product-card">
+            <img src="cylcle.webp" alt="Non-Geared Cycles">
+            <p>Non-Geared Cycles</p>
+            <span>Up to 40% Off</span>
+        </div>
+        <div class="product-card">
+            <img src="remotecontrol.webp" alt="Remote Control Toys">
+            <p>Remote Control Toys</p>
+            <span>Up to 80% Off</span>
+        </div>
+        <div class="product-card">
+            <img src="dryfruit.webp" alt="Dry Fruits">
+            <p>Dry Fruits</p>
+            <span>Up to 75% Off</span>
+        </div>
+        <div class="product-card">
+            <img src="microphone.webp" alt="Microphones">
+            <p>Microphones</p>
+            <span>Up to 70% Off</span>
+        </div>
+        <div class="product-card">
+            <img src="foodspred.webp" alt="Food Spreads">
+            <p>Food Spreads</p>
+            <span>Up to 75% Off</span>
+        </div>
+        <div class="product-card">
+            <img src="instument.webp" alt="Top Selling Instrument">
+            <p>Top Selling Stationery</p>
+            <span>From ₹490</span>
+        </div>
+        <div class="product-card">
+            <img src="puzel&cube.webp" alt="Puzzles & Cubes">
+            <p>Puzzles & Cubes</p>
+            <span>From ₹79</span>
+        </div>
+
+    </div>
+</div>
+
+
+
+        <div class="product-section">
+            <h2>Best of Electronics</h2>
+            <div class="product-container">
+                <div class="product-card">
+                    <img src="fastrackwhates.webp" alt="Fast Track Smart Watch">
+                    <p>Fast Track Smart Watch</p>
+                    <span>from ₹1,399</span>
+                </div>
+                <div class="product-card">
+                    <img src="wireless.webp" alt="Best True Wireless Headphone">
+                    <p>Best True Wireless Headphone</p>
+                    <span>Grab Now</span>
+                </div>
+                <div class="product-card">
+                    <img src="monitor.webp" alt="Monitor">
+                    <p>Monitor</p>
+                    <span>From ₹8279</span>
+                </div>
+                <div class="product-card">
+                    <img src="shaves.webp" alt="Best Of Shaves">
+                    <p>Best Of Shaves</p>
+                    <span>From ₹1,1649</span>
+                </div>
+                <div class="product-card">
+                    <img src="mirrosless.webp" alt="Top Mirrosless came">
+                    <p>Top Mirrosless came</p>
+                    <span>Shop Now!</span>
+                </div>
+                <div class="product-card">
+                    <img src="sandisk.webp" alt="Sandisk Extreme pro">
+                    <p>Sandisk Extreme pro</p>
+                    <span>From ₹5799</span>
+                </div>
+                <div class="product-card">
+                    <img src="projector.webp" alt="Projectors">
+                    <p>Projectors/p>
+                    <span>From ₹9999</span>
+                    </div >
+        
+    </div>
+</div>
+
+    <div class="image-container"  >
+        
+        <div class="small-images">
+            <img src="topwear2.webp" alt="Image 1">
+            <img src="jaw.webp" alt="Image 2">
+            <img src="watches.webp" alt="Image 3">
+            <img src="ethic.webp" alt="Image 4">
+        </div>
+
+        
+        <div class="big-image">
+            <img src="bib3.webp" alt="Big Image">
+        </div>
+    </div>
+  
+    <div>
+
+        <div class="categories">
+            <div class="category">
+                <img src="kilos.png" alt="Kilos">
+                <span>Kilos ▼</span>
+            </div>
+            <div class="category">
+                <img src="mobiles.png" alt="Mobiles">
+                <span>Mobiles ▼</span>
+            </div>
+            <div class="category">
+                <img src="fashion.png" alt="Fashion">
+                <span>Fashion ▼</span>
+            </div>
+            <div class="category">
+                <img src="electronics.png" alt="Electronics">
+                <span>Electronics ▼</span>
+            </div>
+            <div class="category">
+                <img src="Home&furniture.jpg" alt="Home & Furniture">
+                <span>Home & Furniture ▼</span>
+            </div>
+            <div class="category">
+                <img src="appliance.webp" alt="Appliances">
+                <span>Appliances</span>
+            </div>
+            <div class="category">
+                <img src="flitbooking.webp" alt="Flight Bookings">
+                <span>Flight Bookings</span>
+            </div>
+            <div class="category">
+                <img src="Toy.webp" alt="Beauty, Toys & More">
+                <span>Beauty, Toys & More ▼</span>
+            </div>
+            <div class="category">
+                <img src="two wheeler.png" alt="Two Wheelers">
+                <span>Two Wheelers ▼</span>
+            </div>
+        </div>
+        
+    
+    <div class="container"  style="background:#131a22;  text-align:left;padding:20px;margin-right: 20px; font-weight: bold; font-style:  cursive; ; color: white; ">
+        <h4  style="padding:40px">Top Stories:Brand Directory</h4><br><br>
+         <p><b>MOST SEARCHED FOR ON FLIPKART:</b>  SAMSUNG Galaxy S25 Ultra | SAMSUNG Galaxy S25 Plus | SAMSUNG Galaxy S25 | iPhone 16 | iPhone 16 Plus | iPhone 16 Pro iPhone 16 Pro Max | OPPO Reno13 Pro | POCO X7 | realme 14 Pro Plus | REDMI Note 14 Pro SG | Whoop Band | OPPO Find XB | Flipkart Minutes | Flipkart Exchange | Flipkart Reset Nothing Phone 2a Plus | Sarees | CMF by Nothing Phone 1 | Pocket Bazaar | Xiaomi 14 CIVI | Infinix Note 40 Pro 5G iPhone 15 | Infinix Note 40 50 | Phone 15 Plus vivo X Faid3 Pro | Motorola go4s | Vivo x 100 | OnePlus Nord CE 3 Lite SG Spoyl Store | SAMSUNG FlipS SAMSUNG FoldS | Flipkart Axis Bank Super Elite Credit card | SG Mobile Phones | Primebook Laptops | Moto Edge 40 | Grievance Rech
+
+            OPPO
+            
+            Reno7 Pro 5G | Help Centre Track Orders Manage Orders Return Orders Gift Cards Store | Flipkart Axis Bank Credit Card | Pay Later</p>
+    
+   <br>
+   <p><b>MOBILES-</b> Motorola 964 5G | OPPO Reno 12 | Motorola Edge S0 Fusion | REDMI 12 50 | REDMI Note 13 5G | Realme 12.5G | POCO C65 Motorola G84 | Realme CS3 | Infinix Smart 8 | Samsung Galaxy 523 5G | Samsung Galaxy S21 FE SG Qualcom V30 Samsung Galaxy 524 50 | Samsung Galaxy S24+5G | iPhone 12. 6408 | iPhone 12 Pro 512GB | iPhone 12 128GB | Vivo Y15 | SAMSUNG Galaxy S21 FE SG | Infinix HOT 301 | Realme 10 Pro 5G | MOTOROLA G62 5G | Nothing Phone | REDMI Note 12 P 50 Infinix SMART 7 | Vivo Y12 | Oppo A12 | Motorola 5g Phone | Realme 5g Smartphone | Apple 5g Phone | Igoo Sg Phones | Oneplus 50 Phones | Vivo 5g Phones | Oppo 5g Smart Phones | Oppo F15 | Oppo A31 | Samsung A71 | Samsung AST | Samsung
+
+    A31 4G Mobile | Nokia Mobile | Samsung Mobile phone | Oppo Mobile | Vivo Mobile</p>
+    
+<br>
+<p><b>CAMERA-</b> GoPro Action Camera Nikon Camera | Canon Camera Sony Camera Canon DSLR Nikon DSLR</p> 
+<br>
+
+  <p> <b>LAPTOP-</b> Asus ROG Ally | MacBook Pro M2 | Premium Laptop | ASUS ROG Strix SCAR 16 (2023) Core i9 13th Gen | ASUS ROG Zephyrus M16 (2023) Core il 13th Gen | ASUS Zenbook 14 OLED (2022) Reaime Book Prime Core i5 11th Gen | Microsoft Surface Go Pentium 128GB | Apple Laptops | Acer Laptops | Lenovo Laptops | Dell Laptops | Asus Laptops | HP Laptops | Gaming Laptops 2 in 1 Laptops | Laptops | Dell latest laptops 2022 | HP latest laptops 2022 | Infinis INBook Y1 Plus SAMSUNG Galaxy Book 12th Gen Intel Core Laptops</p><br>
+<p>TVS Nokia TV Panasonic TV | Thomson TV | MiX Pro | Reaime TV | Motorola TV | OnePlus TVs | LG TV TV | Sony TV Samsung TV | Android Television | Iffalcon Tv Mi TV  
+    <br>
+    <b>LARGE APPLIANCES:</b> Television | Washing Machines Refrigerators | Air Conditioners | Electric Cookers | Electric Jug(Heater) / Travel Kettles | Induction Cooktops | Inverters/stabilizer Irons/Iron Box | Mixer Grinder Juicer Wer D
+    
+    Grinders Chimneys | Microwave Ovens | Vacuum Cleaners Water Purifier | Fan<br>
+    
+    CLOTHING Sarees | Green bridal lehenga | Tops | Apron for Doctors | Shoes Sunglasses | Bridal Blouse | Half saree blouse designs | Designer blouses | Blouse designs | Shirts | Cotton saree blouse designs | Tshirts | Jeans | Oresses | One pieces | Groo wedding sherwani | Designer Salwar Suits | Bra Cotton simple blouse designs | Banarasi saree blouse designs | Stylish blouse astin design | Track Pant | Blouse neck designs | Kurtas | Party Dresses | Palazzo Suits | Anarkal | Gowns | Cut out dress | Salwar Surts Kurtis | Designer Sarees | Leggings | Shorts | Georgette Sarees Ethnic Wear uppada pattu sarees | Blouse back design | Jodhpur pants<br>
+    
+    FOOTWEAR: Adidas Shoes | Reebok Shoes Nike Shoes | Puma Shoes | Boots | Bata Shoes | Woodland Shoes | Skechers Shoes Sneakers | Womens Boots Sports Shoes | Loafers | Sandals Lotto Sports Shoes | Casual Shoes | Womens Skechers<br>
+    
+    Shoes Asics Sports Shoes Formal Shoes | School Shoes
+    
+    GROCERIES PhonePe Grocery Voucher Hand Wash | Soap Cashew Nuts | Sunflower Oil | Eggs | Toilet Cleaner | Harpic Toilet Cleaner | Dettol Soap | Mustard Oil | Biscuits | Cheese | Patanjali Atta | Fortune Oil | Aashirvaad Atta | Tea<br>
+    
+    BEST SELLING ON FLIPKART Headphones | Best Gas Geyser | Kitchen Geyser | Nutri Blenders | Portable Air Cooler | Best Air Cooler | Bags | Hitachi Refrigerator 3 Door | Books | Toys | Candies | Helmets | Wall Clocks | Baby Food | Chocolates | Cycles | Calculators | Lipsticks | Mask | Vertiv UPS | Fastrack Watches | Wallets | Earrings | Gold Coins | Realme Pad Mini | Handbags | conekt SW2 Smartwatch | Mivi DuoPods a350 | Speaker Cleaner<br>
+    
+    FURNITURE Furniture | Sofas | Beds | Dining sets | Wardrobes Mattresses | TV Units | Tables | Chairs | Shelves | Bean Bags | Office Chairs | Computer Table Office Tables | Red Sofa | Wakefit Beds | White Sofa | Wakefit Mattress Green Sofa | Black
+    
+    Sofa Brown Sofa<br>
+    
+    <B>BGMH:</B> Shampoo Whiry Protein | Homeopathy | Cricket | Cycles | Footballs | Treadmills | Christmas Gifts | Fitness Accessories | Online Guitar | Books Store | Musical Instrument Store | Dabur Chyawanprash | Baidyanath Chyawanprash | Energy
+    
+    Drinks | Toys | Mik Drink Mixes | Chyawanprash | Indian Flag | Protein Supplements</p>
+
+
+
+    <p>
+       <b> Flipkart:</b>  The One-stop Shopping Destination  
+        <br>
+
+E-commerce is revolutionizing the way we all shop in India. Why do you want to hop from one store to another in search of the latest phone when you can find it on the Internet in a single click? Not only mobiles. Flipkart houses everything you can possibly ne, from trending electronics like laptops, tablets, smartphones, and mobile accessories to in-vogue fashion staples like shoes, clothing and lifestyle accessories; from modern furniture like sofa sets, dining tables, and wardrobes to appliances that make mife easy like washing machines, TVs, ACs, mixer grinder juicers and other time-saving kitchen and small appliances; from home furnishings like cushion covers, mattresses and bedsheets to toys and musical instruments, we got them all covered, You it, and you can stay assured about finding them all here. For those of you with erratic working hours, Flipkart is your best bet. Shop in your PJs, at night or in the wee hours of the morning. This e-commerce never shuts down <br>
+
+What's more, with our year-round shopping festivals and events, our prices are irresistible. We're sure you'll find yourself picking up more than what you had in mind. If you are wondering why you should shop from Flipkart when there are multiple options Bable to you, well, the below will answer your question.<br>
+
+Flipkart Plus
+
+world of limitless possibilities awaits you - Flipkart Plus was kickstarted as a loyalty reward programme for all its regular customers at zero subscription fee. All you need is 500 supercoins to be a part of this service. For every 100 rupees spent on Flipkart Ber, Plus members eams 4 supercoins yon-plus members earn 2 supercoins. Free delivery, early access during sales and shopping festivals, exchange offers and priority customer service are the top benefits to a Flipkart Plus member in short, earn more en you shop morel
+<br>
+what's more, you can even use the Flipkart supercoins for a number of exciting services, like.
+
+annual Zomato Gold membership
+
+In annual Hotstar Premium membership
+
+6 months Gaana plus subscription.
+
+mupees 550 instant discount on flights on ixigo
+
+Check out https://www.flipkart.com/plus/all-offers for the entire list. Terms and conditions apply,
+<br>
+<b>No Cost EMI</b>  
+<br>
+In an attempt to make high-end products accessible to all, our Ne Cost EMI plan enables you to shop with us under EMI, without shelling out any processing fee. Applicable on select mobiles, laptops, large and small appliances, furniture, electronics and watches, you can now shop without burming a hole in your pocket. If you've been eyeing a product for a long time, chances are it may be up for a no cost EMI. Take a look ASAPI Terms and conditions apply
+<br>
+<b>EMI on Debit Cards</b>
+<br>
+Did you know debit card holders account for 70.38 crore in the country, while there are only 3.14 crore credit card holders? After enatiling EMI on Credit Cards, in another attempt to make online shopping accessible to everyone, Flipkart introduces Alun Dee Carsts, empowering you to shop confidently with us without having to worry about pauses in monthly cash flow. At present, we have partnered with Axls Bank, HDFC Bank, State Bank of India and ICICI Bank for this facility. More power to all our shappenst Terms and conditions apply,
+<br>
+<b>Mobile Exchange Offers</b>
+<br>
+Chit an mitant tricount on the phone that you have been eyeing on Exchange your old mobile for a new one after the Flipkart experts calculate the value of your old phone, provided it is in a working condition without damage to the screen it a prowe in mponicable for an exchange offer, you will see the Buy with Exchange' option on the product description of the phone. So, be smart, always opt for an exchange wherever possible. Terms and conditions apply.
+<br>
+What Can You Buy From Flipkart?
+<br>
+<b>Mobile Phones</b>
+<br>
+Front Fudget phones 15 state-of-the-art smartphones, w Yar space, we take care of we have a mobile for everybody out there. Whether you're looking for larger, fuller screens, power-packed batteries, blazing-fast processors, beautification apps, high tech se the essentials. Shop from top brands in the country like Samsung, Apple, Oppo, Xiaomi, Realine, Vivo, and Honor to name a few. Rest assured, you're huyng from only the most reliable names in the market leur Tiplerts Computal Mobili Protection Plan, you will never again find the need to run around service centres. This pran entails you to a number of post-purchase solutions, starting at as low as Rupees 00 onvy Broken screens dage to be падение and replacements the Flipkart Complete Mobile Protection covers a comprehensive range of post-purchase
+<br>
+<b>Electronic Devices and Accessories</b>
+<br>
+When it comes to laptops, we are not far behind. Filter among dozens of super-fast operating systems, hard disk capacity, RAM, lifestyle, screen size and many other criterias for personalized results in a flash. All you students out there, confused about what laptop to get? Our Back To College Store segregates laptops purpose wise (gaming, browsing and research, project work, entertainment, design, multitasking) with recommendations from top brands and industry experts, facilitating a shopping experience that is quicker and simpler.
+
+Photography lovers, you couldn't land at a better page than ours. Cutting-edge DSLR cameras, ever reliable point-and-shoot cameras, millennial favourite instant cameras or action cameras for adventure junkies: our range of cameras is as much for beginners as it is for professionals. Canon, Nikon, GoPro, Sony, and Fujifilm are some big names you'll find in our store. Photography lovers, you couldn't land at a better page than ours. Cutting-edge DSLR cameras, ever reliable point-and-shoot cameras, millennial favourite instant cameras or action cameras for adventure junkles our range of cameras is as much for beginners as it is for professionals. Canon, Nikon, GoPro, Sony, and Fujifilm are some big names you'll find in our store
+
+Turn your home into a theatre with a stunning surround sound system. Choose from our elaborate range of Sony home theatres, JBL soundbars and Philips tower speakers for an experience to remember
+
+How about jazzing up your phone with our quirky designer cases and covers? Our wide-ranging mobile accessories starting from headphones, power banks, memory cards, mobile chargers, to selfie sticks can prove to be ideal travel companions for you and your phone, never again worry about running out of charge or memory on your next vacation.
+<br>
+<b>Large Appliances</b>
+<br>
+Sleek TVs, power-saving refrigerators, rapid-cooling ACs, resourceful washing machines-discover everything you need to run a house under one roof. Our Dependable TV and Appilance Store ensures zero transit damage, with a replacement guarantee it anything goes wrong; delivery and installation as per your convenience and a double warranty (Official Brand Warranty along with an extended Flipkart Warranty)-rest assured, value for money is what is promised and delivered. Shop from market leaders in the country like Samsung, LG, Whirlpool, Midea, Mi, Vu, Panasonic, Godrej, Sony, Daikin, and Hitachi among many others.
+
+For certain product categories, Customers meeting the eligibility criteria will have the option to buy larger quantities. To know more on the eligibility criteria and terms and conditions, please reach out to Purchases oni@flipkart.com.
+<br>
+<b>Small Home Appliances</b>
+<br>
+Find handy and practical home appliances designed to make your life simpler electric kettles, OTGs, microwave ovens, sandwich makers, hand blenders, coffee makers, and many more other time-saving appliances that are truly crafted for a quicker tfestyle Live Me king size with these appliances at home.
+<br>
+<b>Life Style </b>
+<br>
+Flipkart, India ka Fashion Capital, is your one stop fashion destination for anything and everything you need to look good. Our exhaustive range of Western and Indian wear, summer and winter clothing, formal and casual footwear, bridal and artificial jewelry Tong-lasting make-up, grooming tools and accessories are sure to sweep you off your feet. Shop from crowd favourites like Vero Moda, Forever 21, Only, Arrow, Woodland, Nike, Puma, Revion, Mac, and Sephora among dozens of other top-of-the-fadder names. From summer staple maxi dresses, no-nonsense cigarette pants, traditional Bandhani kurtis to street-smart biker jackets, you can rely on us for a wardrobe that is up to date. Explore our in-house brands like Metronaut, Anmi, and Denizen, to name a few, for carefully curated designs that are the talk of the town. Get ready to be spoiled for choice Festivals, office get-togethers, weddings, brunches, or nightwear-Flipkart will have your back each time
+<br>
+<b>Home and Furniture</b>
+<br>
+Moving to a new place is never easy, especially if you're buying new furniture. Beds, sofa sets, dining tables, wardrobes, and TV units-it's not easy to set up everything again. With the hundreds of options thrown at you, the ride could be overwhelming. What place is reliable, what furniture will stand the test of time? These are questions you must ask before you choose a store. Well, our Durability Certified Furniture Store has not only curated a range of furniture keeping in mind the moders indian consumer but funsture that comes with a lab certification, ensuring they last you for up to 10 years. Yes, all our furniture has gone through 35 stability and load tests so that you receive only the best-quality furniture. Be FurniSure, always. Names to look out for arm Nom
+
+Godrej Interio, Urban Ladder, Home Town, Dunan and Perfect Homes
+
+You may have your furniture all set up, but they could end up looking flat and incomplete without complementary decor. Curtains, cushion covers, bed sheets, wall shelves, pointings, floor lamps find everything that turns a house to an inviting home under one roof at Flipkart.
+<br>
+<b>Baby and Kids</b>
+<br>
+Your kids deserve only the best. From bodysuits, booties, dapers to strollers, if you're an expecting mother or a new mother, you will find everything you need to set sall on a smooth parenting journey with the help of our baby care собесточилися 15 safety, Frygers and comfort, you can rely on us without a second thought. Huggles, Pampers, MamyPoko, and Johnson & Johnson: we host only the most-trusted names in the business for your baby.
+Electronic Devices and Accessories
+<br>
+<b>Doks, Sports and Games</b>
+<br>
+work hard and no play? We don't believe in that. Get access to best-selling fiction and non-fiction books by your favourite authors, thrilling English and Indian blockbusters, most wanted gaming consoles, and a tempting range of fitness and sports gadgets an pment bound to inspire you to get moving
+<br>
+<b>rocery/Supermart</b>
+
+sunching inte the grocery vertical, Flipkart introduces Supermart that is out to bring everyday essentials close to you. From pulses, spices, dairy, personal and sanitary care, breakfast essentials, health drinks, spreads, ready to cook, grooming to cleaning ments, we are happy to present everything you need to run a house. Now buy Grocery products for as low as 1 Rupee only our 1 Rupee Store presents new products every day for a nominal price of 1 Rupee only. Terms and conditions apply.
+
+</p>
+</div>
+</div>
+
+
+
+
+<br> <br> <br> 
+
+
+  <footer  style="background:#f0f0f0">
+    <div class="footer-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 20px; background-color: #f0f0f0; font-family: robbot;">
+      <div class="footer-section" style="width: calc(30% - 20px); margin-bottom: 40px;">
+        <h3 style="font-size: 16px; margin-bottom: 10px;">ABOUT</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 10px;"><a href="https://www.flipkart.com/helpcentre?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Contact Us</a></li>
+          <li style="margin-bottom: 10px;"><a href="https://corporate.flipkart.net/corporate-home" style="color: #333; text-decoration: none;">About Us</a></li>
+          <li style="margin-bottom: 10px;"><a href="https://www.flipkartcareers.com/?otracker=footer_navlinks#!/" style="color: #333; text-decoration: none;">Careers</a></li>
+          <li style="margin-bottom: 10px;"><a href="https://stories.flipkart.com/?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Flipkart Stories</a></li>
+          <li style="margin-bottom: 10px;"><a href="https://stories.flipkart.com/category/top-stories/news/" style="color: #333; text-decoration: none;">Press</a></li>
+          <li style="margin-bottom: 10px;"><a href="https://www.flipkart.com/corporate-information" style="color: #333; text-decoration: none;">Corporate Information</a></li>
+        </ul>
+      </div>
+      <div class="footer-section" style="width: calc(25% - 20px); margin-bottom: 20px;">
+          <h3 style="font-size: 16px; margin-bottom: 10px;">GROUP COMPANIES</h3>
+          <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px;"><a href="https://www.myntra.com/" style="color: #333; text-decoration: none;">Myntra</a></li>
+              <li style="margin-bottom: 10px;"><a href="https://www.cleartrip.com/" style="color: #333; text-decoration: none;">Cleartrip</a></li>
+              <li style="margin-bottom: 10px;"><a href="https://www.shopsy.in/" style="color: #333; text-decoration: none;">Shopsy</a></li>
+          </ul>
+      </div>
+          <div class="footer-section" style="width: calc(25% - 20px); margin-bottom: 20px;">
+              <h3 style="font-size: 16px; margin-bottom: 10px;">HELP</h3>
+              <ul style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/payments" style="color: #333; text-decoration: none;">Payments</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/shipping" style="color: #333; text-decoration: none;">Shipping</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/helpcentre?catalog=55c9c6edb000002e002c1701&view=CATALOG" style="color: #333; text-decoration: none;">Cancellation & Returns</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/helpcentre?catalog=55c9c8e2b0000023002c1702&view=CATALOG" style="color: #333; text-decoration: none;">FAQ</a></li>
+              </ul>
+          </div>
+          <div class="footer-section" style="width: calc(25% - 20px); margin-bottom: 20px;">
+              <h3 style="font-size: 16px; margin-bottom: 10px;">CONSUMER POLICY</h3>
+              <ul style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/returnpolicy?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Cancellation & Returns</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/terms?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Terms Of Use</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/paymentsecurity?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Security</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/privacypolicy?otracker=footer_navlinkshttps://www.flipkart.com/sitemap?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Privacy</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/sitemap?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Sitemap</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/grievance-redressal-mechanism?otracker=footer_navlinks" style="color: #333; text-decoration: none;">Grievance Redressal</a></li>
+                  <li style="margin-bottom: 5px;"><a href="https://www.flipkart.com/pages/ewaste-compliance-tnc?otracker=footer_navlinks" style="color: #333; text-decoration: none;">EPR Compliance</a></li>
+              </ul>
+          </div>
+          <div class="footer-section contact-info" style="width: calc(33% - 20px); margin-bottom: 20px;">
+              <h3 style="font-size: 16px; margin-bottom: 10px;">Mail Us:</h3>
+              <p style="margin-bottom: 10px;">Flipkart Internet Private Limited,<br> Buildings Alyssa, Begonia &<br> Clove Embassy Tech Village,<br> Outer Ring Road, Devarabeesanahalli Village,<br> Bengaluru, 560103,<br> Karnataka, India</p>
+              <div class="social-icons" style="display: flex; margin-top: 10px;">
+                  <a href="https://www.facebook.com/flipkart" style="margin-right: 10px;"><img src="facebook.png" alt="Facebook" style="width: 20px; height: 20px;"></a>
+                  <a href="https://x.com/flipkart" style="margin-right: 10px;"><img src="twetter.jpeg" alt="Twitter" style="width: 20px; height: 20px;"></a>
+                  <a href="https://www.instagram.com/flipkart" style="margin-right: 10px;"><img src="instagram.jpeg" alt="Instagram" style="width: 20px; height: 20px;"></a>
+                  <a href="https://www.youtube.com/flipkart" style="margin-right: 10px;"><img src="youtube.png" alt="Youtube" style="width: 20px; height: 20px;"></a>
+              </div>
+          </div>
+          <div class="footer-section" style="width: calc(25% - 20px); margin-bottom: 20px;">
+              <h3 style="font-size: 16px; margin-bottom: 10px;">Registered Office Address:</h3>
+              <p style="margin-bottom: 10px;">Flipkart Internet Private Limited,<br> Buildings Alyssa, Begonia &<br> Clove Embassy Tech Village,<br> Outer Ring Road, Devarabeesanahalli Village,<br> Bengaluru, 560103,<br> Karnataka, India<br> CIN: U51109KA2012PTC066107<br> Telephone: 044-45614700 / 044-67415800</p>
+          </div>
+      </div>
+      <div class="footer-bottom" style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd; margin-top: 20px;">
+          <p>&copy; 2025 Flipkart.com BY Kshitij-Tiwari</p>
+      </div>
+  </footer>
+
+
+
+    
+    
+</body>
+</html>
